@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>.::Cadastro de Alunos::.NOME DE USUÁRIO E/OU ESCOLA</title>
+        <meta charset="UTF-8">
+        
+        <style type="text/css">
+            #container{
+                margin: 0px auto;
+                width: 250px;
+                height: 250px;
+                border: 10px #333 solid;
+            }
+            #videoElement{
+                width: 250px;
+                height:250px;
+                background-color: #666;
+            }
+        </style>
+        
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Cadastro de aluno</div>
+        
+        <div id="container">
+            <video autoplay="true" id="videoElement">
+                </video>
+            </div>
+            
+            <script type="text/javascript">
+                var video = document.querySelector("videoElement");
+                navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia||navigator.oGetUserMedia;
+                if(navigator.getUserMedia){
+                    navigator.mediaDevices.getUserMedia({video:true},handleVideo,videoError);
+                }
+                function handleVideo(stream){
+                    video.src=window.URL.createObjectURL(stream);
+                    
+                }
+                function videoError(e){
+                    
+                }
+            </script>
+        
+        <form action="cadaluno" method="POST">
+            R.M.:<input type="text" name="txtRmAluno" value="" size="10" />
+            Nome.:<input type="text" name="txtNomeAluno" value="" size="20" />
+            Endereço.:<input type="text" name="txtEndAluno" value="" size="20" />
+            <input type="submit" value="Cadastrar" name="btnCadAluno" />
+        </form>
+    </body>
+</html>
